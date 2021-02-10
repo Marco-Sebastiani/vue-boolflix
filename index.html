@@ -12,6 +12,34 @@
 </head>
 <body>
     
+    <div class="box-all" id="app">
+
+        <header>
+            <div class="container box-header">
+                <div class="box-img">
+                    <img src="img/img-netflix.png" alt="logo" />
+                </div>
+                <div class="box-search">
+                    <input type="text" placeholder="ricerca" @keyup.enter="search" v-model="query">
+                    <button @click="search">cerca</button>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="cds-container container">
+
+            <!-- Disco ad esempio -->
+            <div class="cd" >
+                <img src="" alt="">
+                <h3>titolo</h3>
+                <span class="author"></span>
+                <span class="year"></span>
+            </div>
+        </div>
+    </div>
+    
+
     <script src="js/script.js"></script>
 </body>
 </html>
