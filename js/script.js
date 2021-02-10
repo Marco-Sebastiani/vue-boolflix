@@ -4,7 +4,9 @@ var app = new Vue({
     data:{
         apiKey:'e0b316189ed62d429752927965d22a18',
         query:'',
-        lang:'it-IT'
+        lang:'it-IT',
+        arrayFilms: []
+
     },
     methods:{
         search(){
@@ -17,7 +19,7 @@ var app = new Vue({
                 }
             })
             .then((result) => {
-                console.log(result.data.results);
+                this.arrayFilms = result.data.results;
             })
             .catch((error) => alert('errori'));
         }

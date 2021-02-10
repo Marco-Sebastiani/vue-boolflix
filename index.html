@@ -30,11 +30,12 @@
         <div class="cds-container container">
 
             <!-- Disco ad esempio -->
-            <div class="cd" >
-                <img src="" alt="">
-                <h3>titolo</h3>
-                <span class="author"></span>
-                <span class="year"></span>
+            <div class="cd" v-for="film in arrayFilms">
+                <img src="https://www.provincia.vicenza.it/immagini/work_in_porgress_.jpg/image" alt="">
+                <h4>Titolo: {{ film.title }}</h4>
+                <h6>Titolo originale: {{ film.original_title }}</h6>
+                <span class="author">Lingua: {{ film.original_language }}</span>
+                <span class="year">Voto: {{ film.vote_average }}</span>
             </div>
         </div>
     </div>
