@@ -10,6 +10,7 @@ var app = new Vue({
     },
     methods:{
         search(){
+            //QUI EFFETTUO LA CHIAMATA API PER I FILM
             axios
             .get('https://api.themoviedb.org/3/search/movie',{
                 params: {
@@ -19,9 +20,24 @@ var app = new Vue({
                 }
             })
             .then((result) => {
-                this.arrayFilms = result.data.results;
+                this.arrayFilms.push(...result.data.results);
             })
             .catch((error) => alert('errori'));
+
+            //QUI EFFETTUO LA CHIAMATA API PER LE SERIE
+            
+            // axios
+            // .get('https://api.themoviedb.org/3/search/tv',{
+            //     params: {
+            //         api_key: this.apiKey,
+            //         query: this.query,
+            //         language: this.lang
+            //     }
+            // })
+            // .then((result) => {
+            //     this.arrayFilms.push(...result.data.results);
+            // })
+            // .catch((error) => alert('errori'));
         }
     }
 });
