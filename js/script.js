@@ -5,10 +5,12 @@ var app = new Vue({
         apiKey:'e0b316189ed62d429752927965d22a18',
         query:'',
         lang:'it-IT',
-        arrayFilms: []
+        arrayFilms: [],
+        arrayFlags: ['de', 'en', 'es', 'fr', 'it', 'pt','ru', 'zh', 'ja']
     },
     methods:{
         search(){
+            this.arrayFilms.splice(0);
             //QUI EFFETTUO LA CHIAMATA API PER I FILM
             axios
             .get('https://api.themoviedb.org/3/search/movie',{
@@ -40,6 +42,12 @@ var app = new Vue({
                 this.query = '';
             })
             .catch((error) => alert('errori'));
+        },
+        generaBandiera(index) {
+            return this.arrayFlags.includes(index);
+        },
+        generaStella(film) {
+            return Math.ceil( film.vote_average / 2 );
         }
     }
 });

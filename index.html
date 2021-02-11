@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -38,6 +39,11 @@
                 <h6>Titolo originale: {{ film.original_title || film.original_name }}</h6>
                 <span class="author">Lingua: {{ film.original_language }}</span>
                 <span class="year">Voto: {{ film.vote_average }}</span>
+                <img v-if="generaBandiera(film.original_language)" class="bandiera" :src="`img/${film.original_language}.svg`" alt="">
+                <img class="bandiera" v-else src="img/world.svg" alt="">
+
+                <i v-for="i in generaStella(film)" class="fas fa-star" ></i>
+                <i v-for="i in (5 - generaStella(film))" class="far fa-star"></i>
             </div>
         </div>
 
