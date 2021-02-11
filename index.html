@@ -27,17 +27,21 @@
 
         </header>
 
+        <h2 v-if="arrayFilms.length > 0"> Film</h2>
         <div class="cds-container container">
 
             <!-- Disco ad esempio -->
             <div class="cd" v-for="film in arrayFilms">
-                <img src="https://www.provincia.vicenza.it/immagini/work_in_porgress_.jpg/image" alt="">
-                <h4>Titolo: {{ film.title }}</h4>
-                <h6>Titolo originale: {{ film.original_title }}</h6>
+                <img v-if="film.poster_path" :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" :alt="film.title">
+                <img v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="poster-placeholder">
+                <h4>Titolo: {{ film.title || film.name}}</h4>
+                <h6>Titolo originale: {{ film.original_title || film.original_name }}</h6>
                 <span class="author">Lingua: {{ film.original_language }}</span>
                 <span class="year">Voto: {{ film.vote_average }}</span>
             </div>
         </div>
+
+
     </div>
     
 

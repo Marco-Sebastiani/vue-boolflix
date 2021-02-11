@@ -6,7 +6,6 @@ var app = new Vue({
         query:'',
         lang:'it-IT',
         arrayFilms: []
-
     },
     methods:{
         search(){
@@ -21,23 +20,26 @@ var app = new Vue({
             })
             .then((result) => {
                 this.arrayFilms.push(...result.data.results);
+                this.query = '';
             })
             .catch((error) => alert('errori'));
 
             //QUI EFFETTUO LA CHIAMATA API PER LE SERIE
             
-            // axios
-            // .get('https://api.themoviedb.org/3/search/tv',{
-            //     params: {
-            //         api_key: this.apiKey,
-            //         query: this.query,
-            //         language: this.lang
-            //     }
-            // })
-            // .then((result) => {
-            //     this.arrayFilms.push(...result.data.results);
-            // })
-            // .catch((error) => alert('errori'));
+            axios
+            .get('https://api.themoviedb.org/3/search/tv',{
+                params: {
+                    api_key: this.apiKey,
+                    query: this.query,
+                    language: this.lang
+                }
+            })
+            .then((result) => {
+                this.arrayFilms = this.arrayFilms.concat(result.data.results);
+
+                this.query = '';
+            })
+            .catch((error) => alert('errori'));
         }
     }
 });
