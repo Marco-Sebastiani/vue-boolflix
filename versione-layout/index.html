@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -40,7 +42,7 @@
             <div class="box-search">
                 <ul>
                     <li>
-                        <input type="text" placeholder="Titoli">
+                        <input type="text" placeholder="Titoli" @keyup.enter="search" v-model="query">
                     </li>
                     <li>
                         <a href="#">bambini</a>
@@ -59,7 +61,34 @@
         </header>
 
         <main>
+            <h2 v-if="arrayFilms.length > 0">film</h2>
             <ul>
+                <li class="white" v-for="film in arrayFilms">
+                    <div class="box-poster">
+                        <img v-if="film.poster_path" :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" :alt="film.title">
+                        <img v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="poster-placeholder">
+                    </div>
+
+                    <div class="box-hover">
+                        
+                    </div>
+
+
+                </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <li class="white"></li>
                 <li class="white"></li>
                 <li class="white"></li>
                 <li class="white"></li>
@@ -75,11 +104,10 @@
                 <li class="white"></li>
                 <li class="white"></li>
                 <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
+                <li class="white"></li> -->
             </ul>
         </main>
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
