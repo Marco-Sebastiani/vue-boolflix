@@ -70,41 +70,28 @@
                     </div>
 
                     <div class="box-hover">
-                        
+                        <h3>Titolo: {{ film.title || film.name}}</h3>
+                        <h6>Titolo originale: {{ film.original_title || film.original_name }}</h6>
+                        <div class="box-bandiera">
+                            <img v-if="generaBandiera(film.original_language)" class="bandiera" :src="`img/${film.original_language}.svg`" :alt="film.original_language">
+                            <img class="bandiera" v-else src="img/world.svg" alt="">
+                        </div>
+                        <div class="box-lingua">
+                            <p>Lingua: {{ film.original_language }}</p>
+                        </div>
+                        <div class="box-stelle">
+                            <i v-for="i in generaStella(film)" class="fas fa-star"></i>
+                            <i v-for="i in (5 - generaStella(film))" class="far fa-star"></i>
+                        </div>
+                        <div class="box-descrizione">
+                            <p v-if="film.overview">OVERVIEW: {{ film.overview }}</p>
+                            <p v-else>Spiacenti descrizione non disponibile</p>
+                        </div>
                     </div>
 
 
+
                 </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <!-- <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li>
-                <li class="white"></li> -->
             </ul>
         </main>
     </div>

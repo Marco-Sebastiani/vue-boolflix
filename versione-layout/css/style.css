@@ -22,21 +22,25 @@ body{
     overflow: auto;
 }
 
-.container::-webkit-scrollbar-track{
+.container::-webkit-scrollbar-track,
+.box-descrizione::-webkit-scrollbar-track{
     background: rgb(185, 181, 181);
     border:1px solid rgba(255, 255, 255, 0.1);
     border-radius:10px;
 }
-.container::-webkit-scrollbar-thumb{
+.container::-webkit-scrollbar-thumb,
+.box-descrizione::-webkit-scrollbar-thumb{
     background:#ee1c1c ;
     height:70px;
     border-radius:10px;
 }
-.container::-webkit-scrollbar-thumb:hover{
+.container::-webkit-scrollbar-thumb:hover,
+.box-descrizione::-webkit-scrollbar-thumb:hover{
     background: #3D3D3D;
 }
 
-.container::-webkit-scrollbar{
+.container::-webkit-scrollbar,
+.box-descrizione::-webkit-scrollbar{
     width: 2px;
     height: 4px;
 }
@@ -138,14 +142,35 @@ main ul{
 
 .box-hover{
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: chartreuse;
-    visibility: hidden;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.87);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ;
 }
 
-.white:hover .box-hover {
-    visibility: visible;
+.white:hover .box-hover{
+    opacity: 1;
+}
+
+.box-bandiera{
+    width: 10%;
+}
+
+.box-stelle{
+    color: rgb(255, 230, 0);
+}
+
+.box-descrizione{
+    overflow: auto;
+    text-align: justify;
+    line-height: 1.6;
+    height: 33%;
+    padding: 7px;
 }
