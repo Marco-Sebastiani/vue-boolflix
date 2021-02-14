@@ -49,5 +49,5 @@ var app = new Vue({
         generaStella(film) {
             return Math.ceil( film.vote_average / 2 );
         }
-    }
+    }   
 });

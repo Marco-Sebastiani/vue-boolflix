@@ -85,7 +85,7 @@ header{
     text-decoration: none;
     padding: 0 10px;
     font-size: 1.1em;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 }
 
 .box-link ul a:hover,
@@ -171,6 +171,6 @@ main ul{
     overflow: auto;
     text-align: justify;
     line-height: 1.6;
-    height: 33%;
+    height: 30%;
     padding: 7px;
 }
